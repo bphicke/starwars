@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Header from "./Header";
+import Header from "../components/Header.jsx";
+import Searchbox from '../components/Searchbox.jsx';
 
 const backgroundStyle = {
   width: 'auto',
@@ -12,6 +13,7 @@ export default class Home extends Component {
     return (
       <div style={backgroundStyle}>
         <Header />
+        <Searchbox />
       </div>
     );
   }
