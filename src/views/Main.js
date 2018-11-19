@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 
 const backgroundStyle = {
-  width: '1440px',
+  width: 'auto',
   height: '900px',
   backgroundColor: '#ededed'
 }
