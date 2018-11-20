@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "../components/Header.jsx";
+import Person from "../components/Person.jsx";
 
 const backgroundStyle = {
   width: "auto",
@@ -15,6 +16,9 @@ export default class Detail extends Component {
     return (
       <div style={backgroundStyle}>
         <Header />
+        <div style={container}>
+          <Person />
+        </div>
       </div>
     );
   }
