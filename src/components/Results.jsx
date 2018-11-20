@@ -51,8 +51,16 @@ export default class Results extends Component {
         <div style={headerText}>Results</div>
         <hr style={divider} />
         <div style={noMatches}>
-          <div>There are zero matches.</div>
-          <div>Use the form to search for People or Movies.</div>
+          {this.props.results && this.props.results.length ? (
+            this.props.results.map((result, index) => {
+              return <div key={index}>Result</div>;
+            })
+          ) : (
+            <React.Fragment>
+              <div>There are zero matches.</div>
+              <div>Use the form to search for People or Movies.</div>
+            </React.Fragment>
+          )}
         </div>
       </div>
     );

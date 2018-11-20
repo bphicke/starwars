@@ -33,7 +33,6 @@ class SearchboxContainer extends Component {
   };
 
   render() {
-    console.log(this.props.searchResults);
     return (
       <Searchbox
         updateSearchQuery={this.updateSearchQuery}

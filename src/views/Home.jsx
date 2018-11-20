@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../components/Header.jsx";
 import SearchboxContainer from "../containers/SearchboxContainer.jsx";
-import Results from "../components/Results.jsx";
+import ResultsContainer from "../containers/ResultsContainer.jsx";
 
 const backgroundStyle = {
   width: "auto",
@@ -19,7 +19,7 @@ export default class Home extends Component {
         <Header />
         <div style={container}>
           <SearchboxContainer />
-          <Results />
+          <ResultsContainer />
         </div>
       </div>
     );
