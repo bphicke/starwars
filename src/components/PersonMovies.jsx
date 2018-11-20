@@ -11,19 +11,19 @@ const title = {
   lineHeight: "normal",
   letterSpacing: "normal",
   color: "#000000",
-  marginLeft: "30px",
+  marginLeft: "100px",
   marginTop: "30px"
 };
 const divider = {
   width: "322px",
   height: "1px",
   backgroundColor: "#c4c4c4",
-  marginLeft: "30px",
+  marginLeft: "100px",
   marginTop: "10px"
 };
 const details = {
   marginTop: "5px",
-  marginLeft: "-10px",
+  marginLeft: "60px",
   width: "322px",
   height: "220px",
   fontFamily: "Montserrat",
@@ -37,18 +37,16 @@ const details = {
   listStyle: "none"
 };
 
-export default class PersonDetails extends Component {
+export default class PersonMovies extends Component {
   render() {
     return (
       <div>
-        <div style={title}>Details</div>
+        <div style={title}>Movies</div>
         <hr style={divider} />
         <ul style={details}>
-          <li>Birth Year: 24BBY</li>
-          <li>Gender: male</li>
-          <li>Eye Color: black</li>
-          <li>Height: 183</li>
-          <li>Mass: 84</li>
+          <li>
+            <a href={"/detail"}>Return of the Jedi</a>
+          </li>
         </ul>
       </div>
     );

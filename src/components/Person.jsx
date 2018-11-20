@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PersonDetails from "./PersonDetails.jsx";
+import PersonMovies from "./PersonMovies.jsx";
 
 const PersonBoxStyle = {
   width: "804px",
@@ -42,13 +43,19 @@ const buttonStyle = {
   borderStyle: "solid",
   borderColor: "#0ab463"
 };
+const container = {
+  display: "flex"
+};
 
 export default class Person extends Component {
   render() {
     return (
       <div style={PersonBoxStyle}>
         <div style={titleText}>Bib Fortuna</div>
-        <PersonDetails />
+        <div style={container}>
+          <PersonDetails />
+          <PersonMovies />
+        </div>
         <button style={buttonStyle}>BACK TO SEARCH</button>
       </div>
     );
