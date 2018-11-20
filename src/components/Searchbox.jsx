@@ -157,7 +157,9 @@ export default class Searchbox extends Component {
             onChange={this.props.updateSearchQuery}
           />
         </div>
-        <button style={searchButtonEnabled}>SEARCH</button>
+        <button style={searchButtonEnabled} onClick={this.props.searchAPI}>
+          SEARCH
+        </button>
       </div>
     );
   }

@@ -17,9 +17,23 @@ class SearchboxContainer extends Component {
     this.props.actions.moviesRadioAction();
   };
 
+  searchAPI = () => {
+    let peopleOrFilms;
+    if (this.props.peopleRadio) {
+      peopleOrFilms = "people";
+    } else {
+      peopleOrFilms = "films";
+    }
+    let url = `https://swapi.co/api/${peopleOrFilms}/?search=${
+      this.props.searchQuery
+    }`;
+    axios.get(url).then(data => {
+      this.props.actions.searchResultsAction(data.data.results);
+    });
+  };
+
   render() {
-    console.log("moviesRadio", this.props.moviesRadio);
-    console.log("peopleRadio", this.props.peopleRadio);
+    console.log(this.props.searchResults);
     return (
       <Searchbox
         updateSearchQuery={this.updateSearchQuery}
@@ -27,6 +41,7 @@ class SearchboxContainer extends Component {
         selectMovies={this.selectMovies}
         moviesRadio={this.props.moviesRadio}
         peopleRadio={this.props.peopleRadio}
+        searchAPI={this.searchAPI}
       />
     );
   }
@@ -35,7 +50,8 @@ class SearchboxContainer extends Component {
 const mapStateToProps = state => ({
   searchQuery: state.searchQuery.searchQuery,
   moviesRadio: state.searchType.moviesRadio,
-  peopleRadio: state.searchType.peopleRadio
+  peopleRadio: state.searchType.peopleRadio,
+  searchResults: state.searchResults.searchResults
 });
 
 const mapDispatchToProps = dispatch => ({
