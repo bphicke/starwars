@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MovieCrawl from "./MovieCrawl.jsx";
-import PersonMovies from "./PersonMovies.jsx";
+import MovieCharacters from "./MovieCharacters.jsx";
 
 const PersonBoxStyle = {
   width: "804px",
@@ -55,7 +55,7 @@ export default class Movie extends Component {
         <div style={titleText}>Return of the Jedi</div>
         <div style={container}>
           <MovieCrawl />
-          <PersonMovies />
+          <MovieCharacters />
         </div>
         <button style={buttonStyle}>BACK TO SEARCH</button>
       </div>
