@@ -131,11 +131,21 @@ export default class Searchbox extends Component {
         <div style={whatAreYouSearchingFor}>What are you searching for?</div>
         <div style={inputs}>
           <span>
-            <input type="radio" style={radioSelected} />
+            <input
+              type="radio"
+              style={radioSelected}
+              onChange={this.props.selectPeople}
+              checked={this.props.peopleRadio}
+            />
             <label style={labels}>People</label>
           </span>
           <span>
-            <input type="radio" style={radioSelected} />
+            <input
+              type="radio"
+              style={radioSelected}
+              onChange={this.props.selectMovies}
+              checked={this.props.moviesRadio}
+            />
             <label style={labels}>Movies</label>
           </span>
         </div>
@@ -144,6 +154,7 @@ export default class Searchbox extends Component {
             type="text"
             style={inputText}
             placeholder={"  e.g. Chewbacca, Yoda, Boba Fett"}
+            onChange={this.props.updateSearchQuery}
           />
         </div>
         <button style={searchButtonEnabled}>SEARCH</button>

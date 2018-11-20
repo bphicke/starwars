@@ -3,8 +3,13 @@ import Home from "../views/Home.jsx";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../actions";
+import axios from "axios";
 
 class HomeContainer extends React.Component {
+  updateSearchQuery = e => {
+    this.props.actions.searchQueryAction(e.target.value);
+  };
+
   render() {
     return <Home />;
   }

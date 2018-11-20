@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import Header from "../components/Header.jsx";
-import Searchbox from '../components/Searchbox.jsx';
-import Results from '../components/Results.jsx';
+import SearchboxContainer from "../containers/SearchboxContainer.jsx";
+import Results from "../components/Results.jsx";
 
 const backgroundStyle = {
-  width: 'auto',
-  height: '900px',
-  backgroundColor: '#ededed'
-}
+  width: "auto",
+  height: "900px",
+  backgroundColor: "#ededed"
+};
 const container = {
-  display: 'flex'
-}
+  display: "flex"
+};
 
 export default class Home extends Component {
   render() {
@@ -18,7 +18,7 @@ export default class Home extends Component {
       <div style={backgroundStyle}>
         <Header />
         <div style={container}>
-          <Searchbox />
+          <SearchboxContainer />
           <Results />
         </div>
       </div>
