@@ -9,12 +9,51 @@ const resultsContainerStyle = {
   marginTop: "30px",
   marginRight: "auto"
 };
+const headerText = {
+  width: "71px",
+  height: "22px",
+  fontFamily: "Montserrat",
+  fontSize: "18px",
+  fontWeight: "bold",
+  fontStyle: "normal",
+  fontStretch: "normal",
+  lineHeight: "normal",
+  letterSpacing: "normal",
+  color: "#000000",
+  marginLeft: "30px",
+  marginTop: "30px"
+};
+const divider = {
+  width: "522px",
+  height: "1px",
+  backgroundColor: "#c4c4c4"
+};
+const noMatches = {
+  width: "324px",
+  height: "35px",
+  fontFamily: "Montserrat",
+  fontSize: "14px",
+  fontWeight: "bold",
+  fontStyle: "normal",
+  fontStretch: "normal",
+  lineHeight: "normal",
+  letterSpacing: "normal",
+  color: "#c4c4c4",
+  marginLeft: "134px",
+  marginTop: "211px",
+  textAlign: "center"
+};
 
 export default class Results extends Component {
   render() {
     return (
       <div style={resultsContainerStyle}>
-        <div>Results</div>
+        <div style={headerText}>Results</div>
+        <hr style={divider} />
+        <div style={noMatches}>
+          <div>There are zero matches.</div>
+          <div>Use the form to search for People or Movies.</div>
+        </div>
       </div>
     );
   }
