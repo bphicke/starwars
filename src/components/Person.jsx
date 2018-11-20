@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PersonDetails from "./PersonDetails.jsx";
 
 const PersonBoxStyle = {
   width: "804px",
@@ -11,7 +12,7 @@ const PersonBoxStyle = {
   marginRight: "auto"
 };
 const titleText = {
-  width: "112px",
+  width: "322px",
   height: "22px",
   fontFamily: "Montserrat",
   fontSize: "18px",
@@ -38,7 +39,8 @@ const buttonStyle = {
   letterSpacing: "normal",
   color: "#ffffff",
   marginLeft: "30px",
-  marginTop: "240px"
+  borderStyle: "solid",
+  borderColor: "#0ab463"
 };
 
 export default class Person extends Component {
@@ -46,7 +48,7 @@ export default class Person extends Component {
     return (
       <div style={PersonBoxStyle}>
         <div style={titleText}>Bib Fortuna</div>
-        <div />
+        <PersonDetails />
         <button style={buttonStyle}>BACK TO SEARCH</button>
       </div>
     );
