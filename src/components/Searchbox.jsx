@@ -51,11 +51,13 @@ const labels = {
   marginRight: "30px",
   marginLeft: "10px"
 };
-const inputText = {
+const inputTextPlaceholder = {
   width: "350px",
   height: "40px",
   borderRadius: "4px",
   boxShadow: "inset 0 1px 3px 0 rgba(132, 132, 132, 0.75)",
+  borderStyle: "solid",
+  borderWidth: "thin",
   backgroundColor: "#ffffff",
   marginLeft: "30px",
   marginTop: "20px",
@@ -68,6 +70,25 @@ const inputText = {
   letterSpacing: "normal",
   color: "#c4c4c4"
 };
+const inputText = {
+  width: "350px",
+  height: "40px",
+  borderRadius: "4px",
+  boxShadow: "inset 0 1px 3px 0 rgba(132, 132, 132, 0.75)",
+  borderStyle: "solid",
+  borderWidth: "thin",
+  backgroundColor: "#ffffff",
+  marginLeft: "30px",
+  marginTop: "20px",
+  fontFamily: "Montserrat",
+  fontSize: "14px",
+  fontWeight: "bold",
+  fontStyle: "normal",
+  fontStretch: "normal",
+  lineHeight: "normal",
+  letterSpacing: "normal",
+  color: "#383838"
+};
 const searchButtonDisabled = {
   width: "350px",
   height: "34px",
@@ -75,6 +96,23 @@ const searchButtonDisabled = {
   borderStyle: "solid",
   borderColor: "#c4c4c4",
   backgroundColor: "#c4c4c4",
+  marginLeft: "30px",
+  marginTop: "20px",
+  fontSize: "14px",
+  fontWeight: "bold",
+  fontStyle: "normal",
+  fontStretch: "normal",
+  lineHeight: "normal",
+  letterSpacing: "normal",
+  color: "#ffffff"
+};
+const searchButtonEnabled = {
+  width: "350px",
+  height: "34px",
+  borderRadius: "20px",
+  borderStyle: "solid",
+  borderColor: "#0ab463",
+  backgroundColor: "#0ab463",
   marginLeft: "30px",
   marginTop: "20px",
   fontSize: "14px",
@@ -108,7 +146,7 @@ export default class Searchbox extends Component {
             placeholder={"  e.g. Chewbacca, Yoda, Boba Fett"}
           />
         </div>
-        <button style={searchButtonDisabled}>SEARCH</button>
+        <button style={searchButtonEnabled}>SEARCH</button>
       </div>
     );
   }
