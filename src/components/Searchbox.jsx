@@ -9,10 +9,11 @@ const searchContainerStyle = {
   marginTop: "30px",
   marginRight: "30px",
   marginLeft: "auto",
-  display: "flex"
+  display: "flex",
+  flexDirection: "column"
 };
 const whatAreYouSearchingFor = {
-  width: "205px",
+  width: "380px",
   height: "18px",
   fontFamily: "Montserrat",
   fontSize: "14px",
@@ -25,10 +26,64 @@ const whatAreYouSearchingFor = {
   marginLeft: "30px",
   marginTop: "30px"
 };
+const inputs = {
+  width: "380px",
+  marginTop: "20px",
+  marginLeft: "30px"
+};
 const radioSelected = {
   width: "16px",
   height: "16px",
   backgroundColor: "#0094ff"
+};
+const labels = {
+  verticalAlign: "top",
+  width: "51px",
+  height: "18px",
+  fontFamily: "Montserrat",
+  fontSize: "14px",
+  fontWeight: "bold",
+  fontStyle: "normal",
+  fontStretch: "normal",
+  lineHeight: "normal",
+  letterSpacing: "normal",
+  color: "#000000",
+  marginRight: "30px",
+  marginLeft: "10px"
+};
+const inputText = {
+  width: "350px",
+  height: "40px",
+  borderRadius: "4px",
+  boxShadow: "inset 0 1px 3px 0 rgba(132, 132, 132, 0.75)",
+  backgroundColor: "#ffffff",
+  marginLeft: "30px",
+  marginTop: "20px",
+  fontFamily: "Montserrat",
+  fontSize: "14px",
+  fontWeight: "bold",
+  fontStyle: "normal",
+  fontStretch: "normal",
+  lineHeight: "normal",
+  letterSpacing: "normal",
+  color: "#c4c4c4"
+};
+const searchButtonDisabled = {
+  width: "350px",
+  height: "34px",
+  borderRadius: "20px",
+  borderStyle: "solid",
+  borderColor: "#c4c4c4",
+  backgroundColor: "#c4c4c4",
+  marginLeft: "30px",
+  marginTop: "20px",
+  fontSize: "14px",
+  fontWeight: "bold",
+  fontStyle: "normal",
+  fontStretch: "normal",
+  lineHeight: "normal",
+  letterSpacing: "normal",
+  color: "#ffffff"
 };
 
 export default class Searchbox extends Component {
@@ -36,16 +91,24 @@ export default class Searchbox extends Component {
     return (
       <div style={searchContainerStyle}>
         <div style={whatAreYouSearchingFor}>What are you searching for?</div>
-        <div>
-          <td>
-            <input type="radio" />
-            People
-          </td>
-          <td>
-            <input type="radio" />
-            Movies
-          </td>
+        <div style={inputs}>
+          <span>
+            <input type="radio" style={radioSelected} />
+            <label style={labels}>People</label>
+          </span>
+          <span>
+            <input type="radio" style={radioSelected} />
+            <label style={labels}>Movies</label>
+          </span>
         </div>
+        <div>
+          <input
+            type="text"
+            style={inputText}
+            placeholder={"  e.g. Chewbacca, Yoda, Boba Fett"}
+          />
+        </div>
+        <button style={searchButtonDisabled}>SEARCH</button>
       </div>
     );
   }
