@@ -45,8 +45,12 @@ export default class Result extends Component {
   render() {
     return (
       <li style={ResultContainerStyle}>
-        <span style={nameText}>Biggs Darklighter</span>
-        <button style={buttonStyle}>SEE DETAILS</button>
+        <span style={nameText}>
+          {this.props.people ? this.props.result.name : this.props.result.title}
+        </span>
+        <button style={buttonStyle} onClick={this.props.selectResult}>
+          SEE DETAILS
+        </button>
         <hr style={divider} />
       </li>
     );

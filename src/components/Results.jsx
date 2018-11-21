@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Result from "./Result.jsx";
+import ResultContainer from "../containers/ResultContainer.jsx";
 
 const resultsContainerStyle = {
   width: "582px",
@@ -40,35 +40,35 @@ const noMatches = {
   lineHeight: "normal",
   letterSpacing: "normal",
   color: "#c4c4c4",
-  marginLeft: "134px",
+  marginLeft: "84px",
   marginTop: "211px",
   textAlign: "center"
-};
-const listStyle = {
-  display: "flex"
 };
 
 export default class Results extends Component {
   render() {
-    console.log(this.props.results);
-
     return (
       <div style={resultsContainerStyle}>
         <div style={headerText}>Results</div>
         <hr style={divider} />
-        <ul style={listStyle}>
-          <Result />
+        <ul>
+          {this.props.results && this.props.results.length ? (
+            this.props.results.map((result, index) => {
+              return (
+                <ResultContainer
+                  key={index}
+                  result={result}
+                  people={this.props.people}
+                />
+              );
+            })
+          ) : (
+            <div style={noMatches}>
+              <div>There are zero matches.</div>
+              <div>Use the form to search for People or Movies.</div>
+            </div>
+          )}
         </ul>
-        {this.props.results && this.props.results.length ? (
-          this.props.results.map((result, index) => {
-            return <Result key={index} />;
-          })
-        ) : (
-          <div style={noMatches}>
-            <div>There are zero matches.</div>
-            <div>Use the form to search for People or Movies.</div>
-          </div>
-        )}
       </div>
     );
   }

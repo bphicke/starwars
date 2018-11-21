@@ -2,7 +2,8 @@ import {
   SEARCH_QUERY_ACTION,
   MOVIES_RADIO_ACTION,
   PEOPLE_RADIO_ACTION,
-  SEARCH_RESULTS_ACTION
+  SEARCH_RESULTS_ACTION,
+  SELECTED_RESULT_ACTION
 } from '../constants';
 
 export const searchQueryAction = (searchQuery) => ({
@@ -22,3 +23,8 @@ export const searchResultsAction = (searchResults) => ({
   type: SEARCH_RESULTS_ACTION,
   payload: searchResults
 });
+
+export const selectedResult = (selectedResult) => ({
+  type: SELECTED_RESULT_ACTION,
+  payload: selectedResult
+})
