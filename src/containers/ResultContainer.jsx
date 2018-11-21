@@ -25,7 +25,6 @@ class ResultContainer extends Component {
     this.props.actions.selectedResult(this.props.result);
   };
   render() {
-    console.log(this.props.selectedResult);
     return (
       <Result
         result={this.props.result}

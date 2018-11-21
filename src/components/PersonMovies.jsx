@@ -44,9 +44,13 @@ export default class PersonMovies extends Component {
         <div style={title}>Movies</div>
         <hr style={divider} />
         <ul style={details}>
-          <li>
-            <a href={"/detail"}>Return of the Jedi</a>
-          </li>
+          {this.props.selectedResult.filmTitles.map((film, index) => {
+            return (
+              <li key={index}>
+                <a>{film}</a>
+              </li>
+            );
+          })}
         </ul>
       </div>
     );

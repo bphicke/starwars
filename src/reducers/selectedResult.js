@@ -1,7 +1,10 @@
 import { SELECTED_RESULT_ACTION } from '../constants';
 
 const initialState={
-  selectedResult: {}
+  selectedResult: {
+    filmTitles:[''],
+    characterNames:['']
+  }
 };
 
 export default function selectedResult(state=initialState, action) {

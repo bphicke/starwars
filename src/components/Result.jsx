@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 const ResultContainerStyle = {
   listStyleType: "none"
@@ -18,7 +19,10 @@ const buttonStyle = {
   fontStretch: "normal",
   lineHeight: "normal",
   letterSpacing: "normal",
-  marginLeft: "252px"
+  marginTop: "auto",
+  marginRight: "30px",
+  marginBottom: "10px",
+  float: "right"
 };
 const nameText = {
   width: "149px",
@@ -48,9 +52,11 @@ export default class Result extends Component {
         <span style={nameText}>
           {this.props.people ? this.props.result.name : this.props.result.title}
         </span>
-        <button style={buttonStyle} onClick={this.props.selectResult}>
-          SEE DETAILS
-        </button>
+        <Link to={"/detail"}>
+          <button style={buttonStyle} onClick={this.props.selectResult}>
+            SEE DETAILS
+          </button>
+        </Link>
         <hr style={divider} />
       </li>
     );

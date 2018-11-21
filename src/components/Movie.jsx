@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import MovieCrawl from "./MovieCrawl.jsx";
 import MovieCharacters from "./MovieCharacters.jsx";
+import { Link } from "react-router-dom";
 
 const PersonBoxStyle = {
   width: "804px",
@@ -57,7 +58,9 @@ export default class Movie extends Component {
           <MovieCrawl />
           <MovieCharacters />
         </div>
-        <button style={buttonStyle}>BACK TO SEARCH</button>
+        <Link to={"/"}>
+          <button style={buttonStyle}>BACK TO SEARCH</button>
+        </Link>
       </div>
     );
   }

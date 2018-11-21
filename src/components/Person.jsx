@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PersonDetails from "./PersonDetails.jsx";
 import PersonMovies from "./PersonMovies.jsx";
+import { Link } from "react-router-dom";
 
 const PersonBoxStyle = {
   width: "804px",
@@ -51,12 +52,14 @@ export default class Person extends Component {
   render() {
     return (
       <div style={PersonBoxStyle}>
-        <div style={titleText}>Bib Fortuna</div>
+        <div style={titleText}>{this.props.selectedResult.name}</div>
         <div style={container}>
-          <PersonDetails />
-          <PersonMovies />
+          <PersonDetails selectedResult={this.props.selectedResult} />
+          <PersonMovies selectedResult={this.props.selectedResult} />
         </div>
-        <button style={buttonStyle}>BACK TO SEARCH</button>
+        <Link to={"/"}>
+          <button style={buttonStyle}>BACK TO SEARCH</button>
+        </Link>
       </div>
     );
   }

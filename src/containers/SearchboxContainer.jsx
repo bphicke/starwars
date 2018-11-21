@@ -9,27 +9,27 @@ class SearchboxContainer extends Component {
   updateSearchQuery = e => {
     this.props.actions.searchQueryAction(e.target.value);
   };
-
   selectPeople = () => {
     this.props.actions.peopleRadioAction();
   };
   selectMovies = () => {
     this.props.actions.moviesRadioAction();
   };
-
   searchAPI = () => {
-    let peopleOrFilms;
-    if (this.props.peopleRadio) {
-      peopleOrFilms = "people";
-    } else {
-      peopleOrFilms = "films";
+    if (this.props.searchQuery !== "") {
+      let peopleOrFilms;
+      if (this.props.peopleRadio) {
+        peopleOrFilms = "people";
+      } else {
+        peopleOrFilms = "films";
+      }
+      let url = `https://swapi.co/api/${peopleOrFilms}/?search=${
+        this.props.searchQuery
+      }`;
+      axios.get(url).then(data => {
+        this.props.actions.searchResultsAction(data.data.results);
+      });
     }
-    let url = `https://swapi.co/api/${peopleOrFilms}/?search=${
-      this.props.searchQuery
-    }`;
-    axios.get(url).then(data => {
-      this.props.actions.searchResultsAction(data.data.results);
-    });
   };
 
   render() {
@@ -41,6 +41,7 @@ class SearchboxContainer extends Component {
         moviesRadio={this.props.moviesRadio}
         peopleRadio={this.props.peopleRadio}
         searchAPI={this.searchAPI}
+        searchQuery={this.props.searchQuery}
       />
     );
   }

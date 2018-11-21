@@ -152,12 +152,21 @@ export default class Searchbox extends Component {
         <div>
           <input
             type="text"
-            style={inputText}
+            style={
+              this.props.searchQuery === "" ? inputTextPlaceholder : inputText
+            }
             placeholder={"  e.g. Chewbacca, Yoda, Boba Fett"}
             onChange={this.props.updateSearchQuery}
           />
         </div>
-        <button style={searchButtonEnabled} onClick={this.props.searchAPI}>
+        <button
+          style={
+            this.props.searchQuery === ""
+              ? searchButtonDisabled
+              : searchButtonEnabled
+          }
+          onClick={this.props.searchAPI}
+        >
           SEARCH
         </button>
       </div>

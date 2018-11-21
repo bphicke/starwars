@@ -18,7 +18,11 @@ export default class Detail extends Component {
       <div style={backgroundStyle}>
         <Header />
         <div style={container}>
-          <Movie />
+          {this.props.people ? (
+            <Person selectedResult={this.props.selectedResult} />
+          ) : (
+            <Movie selectedResult={this.props.selectedResult} />
+          )}
         </div>
       </div>
     );

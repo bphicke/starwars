@@ -44,11 +44,11 @@ export default class PersonDetails extends Component {
         <div style={title}>Details</div>
         <hr style={divider} />
         <ul style={details}>
-          <li>Birth Year: 24BBY</li>
-          <li>Gender: male</li>
-          <li>Eye Color: black</li>
-          <li>Height: 183</li>
-          <li>Mass: 84</li>
+          <li>Birth Year: {this.props.selectedResult.birth_year}</li>
+          <li>Gender: {this.props.selectedResult.gender}</li>
+          <li>Eye Color: {this.props.selectedResult.eye_color}</li>
+          <li>Height: {this.props.selectedResult.height}</li>
+          <li>Mass: {this.props.selectedResult.mass}</li>
         </ul>
       </div>
     );
