@@ -7,12 +7,21 @@ import axios from "axios";
 
 class ResultContainer extends Component {
   selectResult = async () => {
-    let films = await Promise.all(
-      this.props.result.films.map(url =>
-        axios.get(url).then(filmData => filmData.data.title)
-      )
-    );
-    this.props.result.filmTitles = films;
+    if (this.props.peopleRadio) {
+      let films = await Promise.all(
+        this.props.result.films.map(url =>
+          axios.get(url).then(filmData => filmData.data.title)
+        )
+      );
+      this.props.result.filmTitles = films;
+    } else {
+      let characterNames = await Promise.all(
+        this.props.result.characters.map(url =>
+          axios.get(url).then(characterData => characterData.data.name)
+        )
+      );
+      this.props.result.characterNames = characterNames;
+    }
     this.props.actions.selectedResult(this.props.result);
   };
   render() {
