@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PersonMovieContainer from "../containers/PersonMovieContainer.jsx";
 
 const title = {
   width: "59px",
@@ -46,9 +47,11 @@ export default class PersonMovies extends Component {
         <ul style={details}>
           {this.props.selectedResult.filmTitles.map((film, index) => {
             return (
-              <li key={index}>
-                <a>{film}</a>
-              </li>
+              <PersonMovieContainer
+                key={index}
+                film={film}
+                url={this.props.selectedResult.films[index]}
+              />
             );
           })}
         </ul>

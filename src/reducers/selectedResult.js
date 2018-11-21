@@ -3,7 +3,8 @@ import { SELECTED_RESULT_ACTION } from '../constants';
 const initialState={
   selectedResult: {
     filmTitles:[''],
-    characterNames:['']
+    characterNames:[''],
+    films:['']
   }
 };
 
