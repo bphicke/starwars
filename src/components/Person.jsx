@@ -3,6 +3,23 @@ import PersonDetails from "./PersonDetails.jsx";
 import PersonMovies from "./PersonMovies.jsx";
 import { Link } from "react-router-dom";
 
+export default class Person extends Component {
+  render() {
+    return (
+      <div style={PersonBoxStyle}>
+        <div style={titleText}>{this.props.selectedResult.name}</div>
+        <div style={container}>
+          <PersonDetails selectedResult={this.props.selectedResult} />
+          <PersonMovies selectedResult={this.props.selectedResult} />
+        </div>
+        <Link to={"/"}>
+          <button style={buttonStyle}>BACK TO SEARCH</button>
+        </Link>
+      </div>
+    );
+  }
+}
+
 const PersonBoxStyle = {
   width: "804px",
   height: "417px",
@@ -47,20 +64,3 @@ const buttonStyle = {
 const container = {
   display: "flex"
 };
-
-export default class Person extends Component {
-  render() {
-    return (
-      <div style={PersonBoxStyle}>
-        <div style={titleText}>{this.props.selectedResult.name}</div>
-        <div style={container}>
-          <PersonDetails selectedResult={this.props.selectedResult} />
-          <PersonMovies selectedResult={this.props.selectedResult} />
-        </div>
-        <Link to={"/"}>
-          <button style={buttonStyle}>BACK TO SEARCH</button>
-        </Link>
-      </div>
-    );
-  }
-}

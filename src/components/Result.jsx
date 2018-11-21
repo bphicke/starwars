@@ -1,6 +1,24 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+export default class Result extends Component {
+  render() {
+    return (
+      <li style={ResultContainerStyle}>
+        <span style={nameText}>
+          {this.props.people ? this.props.result.name : this.props.result.title}
+        </span>
+        <Link to={"/detail"}>
+          <button style={buttonStyle} onClick={this.props.selectResult}>
+            SEE DETAILS
+          </button>
+        </Link>
+        <hr style={divider} />
+      </li>
+    );
+  }
+}
+
 const ResultContainerStyle = {
   listStyleType: "none"
 };
@@ -44,21 +62,3 @@ const divider = {
   marginLeft: "-10px",
   marginTop: "10px"
 };
-
-export default class Result extends Component {
-  render() {
-    return (
-      <li style={ResultContainerStyle}>
-        <span style={nameText}>
-          {this.props.people ? this.props.result.name : this.props.result.title}
-        </span>
-        <Link to={"/detail"}>
-          <button style={buttonStyle} onClick={this.props.selectResult}>
-            SEE DETAILS
-          </button>
-        </Link>
-        <hr style={divider} />
-      </li>
-    );
-  }
-}

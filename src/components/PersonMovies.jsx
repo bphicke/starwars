@@ -1,6 +1,28 @@
 import React, { Component } from "react";
 import PersonMovieContainer from "../containers/PersonMovieContainer.jsx";
 
+export default class PersonMovies extends Component {
+  render() {
+    return (
+      <div>
+        <div style={title}>Movies</div>
+        <hr style={divider} />
+        <ul style={details}>
+          {this.props.selectedResult.filmTitles.map((film, index) => {
+            return (
+              <PersonMovieContainer
+                key={index}
+                film={film}
+                url={this.props.selectedResult.films[index]}
+              />
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
+}
+
 const title = {
   width: "59px",
   height: "20px",
@@ -37,25 +59,3 @@ const details = {
   color: "#000000",
   listStyle: "none"
 };
-
-export default class PersonMovies extends Component {
-  render() {
-    return (
-      <div>
-        <div style={title}>Movies</div>
-        <hr style={divider} />
-        <ul style={details}>
-          {this.props.selectedResult.filmTitles.map((film, index) => {
-            return (
-              <PersonMovieContainer
-                key={index}
-                film={film}
-                url={this.props.selectedResult.films[index]}
-              />
-            );
-          })}
-        </ul>
-      </div>
-    );
-  }
-}

@@ -1,5 +1,55 @@
 import React, { Component } from "react";
 
+export default class Searchbox extends Component {
+  render() {
+    return (
+      <div style={searchContainerStyle}>
+        <div style={whatAreYouSearchingFor}>What are you searching for?</div>
+        <div style={inputs}>
+          <span>
+            <input
+              type="radio"
+              style={radioSelected}
+              onChange={this.props.selectPeople}
+              checked={this.props.peopleRadio}
+            />
+            <label style={labels}>People</label>
+          </span>
+          <span>
+            <input
+              type="radio"
+              style={radioSelected}
+              onChange={this.props.selectMovies}
+              checked={this.props.moviesRadio}
+            />
+            <label style={labels}>Movies</label>
+          </span>
+        </div>
+        <div>
+          <input
+            type="text"
+            style={
+              this.props.searchQuery === "" ? inputTextPlaceholder : inputText
+            }
+            placeholder={"  e.g. Chewbacca, Yoda, Boba Fett"}
+            onChange={this.props.updateSearchQuery}
+          />
+        </div>
+        <button
+          style={
+            this.props.searchQuery === ""
+              ? searchButtonDisabled
+              : searchButtonEnabled
+          }
+          onClick={this.props.searchAPI}
+        >
+          {this.props.isLoading ? "SEARCHING..." : "SEARCH"}
+        </button>
+      </div>
+    );
+  }
+}
+
 const searchContainerStyle = {
   width: "410px",
   height: "230px",
@@ -123,53 +173,3 @@ const searchButtonEnabled = {
   letterSpacing: "normal",
   color: "#ffffff"
 };
-
-export default class Searchbox extends Component {
-  render() {
-    return (
-      <div style={searchContainerStyle}>
-        <div style={whatAreYouSearchingFor}>What are you searching for?</div>
-        <div style={inputs}>
-          <span>
-            <input
-              type="radio"
-              style={radioSelected}
-              onChange={this.props.selectPeople}
-              checked={this.props.peopleRadio}
-            />
-            <label style={labels}>People</label>
-          </span>
-          <span>
-            <input
-              type="radio"
-              style={radioSelected}
-              onChange={this.props.selectMovies}
-              checked={this.props.moviesRadio}
-            />
-            <label style={labels}>Movies</label>
-          </span>
-        </div>
-        <div>
-          <input
-            type="text"
-            style={
-              this.props.searchQuery === "" ? inputTextPlaceholder : inputText
-            }
-            placeholder={"  e.g. Chewbacca, Yoda, Boba Fett"}
-            onChange={this.props.updateSearchQuery}
-          />
-        </div>
-        <button
-          style={
-            this.props.searchQuery === ""
-              ? searchButtonDisabled
-              : searchButtonEnabled
-          }
-          onClick={this.props.searchAPI}
-        >
-          {this.props.isLoading ? "SEARCHING..." : "SEARCH"}
-        </button>
-      </div>
-    );
-  }
-}

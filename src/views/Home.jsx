@@ -3,15 +3,6 @@ import Header from "../components/Header.jsx";
 import SearchboxContainer from "../containers/SearchboxContainer.jsx";
 import ResultsContainer from "../containers/ResultsContainer.jsx";
 
-const backgroundStyle = {
-  width: "auto",
-  height: "900px",
-  backgroundColor: "#ededed"
-};
-const container = {
-  display: "flex"
-};
-
 export default class Home extends Component {
   render() {
     return (
@@ -25,3 +16,12 @@ export default class Home extends Component {
     );
   }
 }
+
+const backgroundStyle = {
+  width: "auto",
+  height: "900px",
+  backgroundColor: "#ededed"
+};
+const container = {
+  display: "flex"
+};

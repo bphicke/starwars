@@ -1,6 +1,49 @@
 import React, { Component } from "react";
 import ResultContainer from "../containers/ResultContainer.jsx";
 
+export default class Results extends Component {
+  render() {
+    if (this.props.isLoading) {
+      return (
+        <div style={resultsContainerStyle}>
+          <div style={headerText}>Results</div>
+          <hr style={divider} />
+          <ul>
+            <div style={noMatches}>
+              <div>Searching...</div>
+            </div>
+          </ul>
+        </div>
+      );
+    }
+
+    return (
+      <div style={resultsContainerStyle}>
+        <div style={headerText}>Results</div>
+        <hr style={divider} />
+        <ul>
+          {this.props.results && this.props.results.length ? (
+            this.props.results.map((result, index) => {
+              return (
+                <ResultContainer
+                  key={index}
+                  result={result}
+                  people={this.props.people}
+                />
+              );
+            })
+          ) : (
+            <div style={noMatches}>
+              <div>There are zero matches.</div>
+              <div>Use the form to search for People or Movies.</div>
+            </div>
+          )}
+        </ul>
+      </div>
+    );
+  }
+}
+
 const resultsContainerStyle = {
   width: "582px",
   height: "582px",
@@ -44,46 +87,3 @@ const noMatches = {
   marginTop: "211px",
   textAlign: "center"
 };
-
-export default class Results extends Component {
-  render() {
-    if (this.props.isLoading) {
-      return (
-        <div style={resultsContainerStyle}>
-          <div style={headerText}>Results</div>
-          <hr style={divider} />
-          <ul>
-            <div style={noMatches}>
-              <div>Searching...</div>
-            </div>
-          </ul>
-        </div>
-      );
-    }
-
-    return (
-      <div style={resultsContainerStyle}>
-        <div style={headerText}>Results</div>
-        <hr style={divider} />
-        <ul>
-          {this.props.results && this.props.results.length ? (
-            this.props.results.map((result, index) => {
-              return (
-                <ResultContainer
-                  key={index}
-                  result={result}
-                  people={this.props.people}
-                />
-              );
-            })
-          ) : (
-            <div style={noMatches}>
-              <div>There are zero matches.</div>
-              <div>Use the form to search for People or Movies.</div>
-            </div>
-          )}
-        </ul>
-      </div>
-    );
-  }
-}

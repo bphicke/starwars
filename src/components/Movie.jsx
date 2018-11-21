@@ -3,6 +3,23 @@ import MovieCrawl from "./MovieCrawl.jsx";
 import MovieCharacters from "./MovieCharacters.jsx";
 import { Link } from "react-router-dom";
 
+export default class Movie extends Component {
+  render() {
+    return (
+      <div style={PersonBoxStyle}>
+        <div style={titleText}>{this.props.selectedResult.title}</div>
+        <div style={container}>
+          <MovieCrawl opening_crawl={this.props.selectedResult.opening_crawl} />
+          <MovieCharacters selectedResult={this.props.selectedResult} />
+        </div>
+        <Link to={"/"}>
+          <button style={buttonStyle}>BACK TO SEARCH</button>
+        </Link>
+      </div>
+    );
+  }
+}
+
 const PersonBoxStyle = {
   width: "804px",
   height: "650px",
@@ -48,20 +65,3 @@ const buttonStyle = {
 const container = {
   display: "flex"
 };
-
-export default class Movie extends Component {
-  render() {
-    return (
-      <div style={PersonBoxStyle}>
-        <div style={titleText}>{this.props.selectedResult.title}</div>
-        <div style={container}>
-          <MovieCrawl opening_crawl={this.props.selectedResult.opening_crawl} />
-          <MovieCharacters selectedResult={this.props.selectedResult} />
-        </div>
-        <Link to={"/"}>
-          <button style={buttonStyle}>BACK TO SEARCH</button>
-        </Link>
-      </div>
-    );
-  }
-}

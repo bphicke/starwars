@@ -1,5 +1,15 @@
 import React, { Component } from "react";
 
+export default class Header extends Component {
+  render() {
+    return (
+      <div style={headerStyle}>
+        <div style={SWStarter}>SWStarter</div>
+      </div>
+    );
+  }
+}
+
 const headerStyle = {
   width: "auto",
   height: "50px",
@@ -23,13 +33,3 @@ const SWStarter = {
   letterSpacing: "normal",
   color: "#0ab463"
 };
-
-export default class Header extends Component {
-  render() {
-    return (
-      <div style={headerStyle}>
-        <div style={SWStarter}>SWStarter</div>
-      </div>
-    );
-  }
-}

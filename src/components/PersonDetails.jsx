@@ -1,5 +1,23 @@
 import React, { Component } from "react";
 
+export default class PersonDetails extends Component {
+  render() {
+    return (
+      <div>
+        <div style={title}>Details</div>
+        <hr style={divider} />
+        <ul style={details}>
+          <li>Birth Year: {this.props.selectedResult.birth_year}</li>
+          <li>Gender: {this.props.selectedResult.gender}</li>
+          <li>Eye Color: {this.props.selectedResult.eye_color}</li>
+          <li>Height: {this.props.selectedResult.height}</li>
+          <li>Mass: {this.props.selectedResult.mass}</li>
+        </ul>
+      </div>
+    );
+  }
+}
+
 const title = {
   width: "59px",
   height: "20px",
@@ -36,21 +54,3 @@ const details = {
   color: "#000000",
   listStyle: "none"
 };
-
-export default class PersonDetails extends Component {
-  render() {
-    return (
-      <div>
-        <div style={title}>Details</div>
-        <hr style={divider} />
-        <ul style={details}>
-          <li>Birth Year: {this.props.selectedResult.birth_year}</li>
-          <li>Gender: {this.props.selectedResult.gender}</li>
-          <li>Eye Color: {this.props.selectedResult.eye_color}</li>
-          <li>Height: {this.props.selectedResult.height}</li>
-          <li>Mass: {this.props.selectedResult.mass}</li>
-        </ul>
-      </div>
-    );
-  }
-}
