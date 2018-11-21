@@ -17,6 +17,7 @@ class SearchboxContainer extends Component {
   };
   searchAPI = () => {
     if (this.props.searchQuery !== "") {
+      this.props.actions.isLoading();
       let peopleOrFilms;
       if (this.props.peopleRadio) {
         peopleOrFilms = "people";
@@ -42,6 +43,7 @@ class SearchboxContainer extends Component {
         peopleRadio={this.props.peopleRadio}
         searchAPI={this.searchAPI}
         searchQuery={this.props.searchQuery}
+        isLoading={this.props.isLoading}
       />
     );
   }
@@ -51,7 +53,8 @@ const mapStateToProps = state => ({
   searchQuery: state.searchQuery.searchQuery,
   moviesRadio: state.searchType.moviesRadio,
   peopleRadio: state.searchType.peopleRadio,
-  searchResults: state.searchResults.searchResults
+  searchResults: state.searchResults.searchResults,
+  isLoading: state.isLoading.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

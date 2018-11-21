@@ -21,6 +21,9 @@ class ResultContainer extends Component {
         )
       );
       this.props.result.characterNames = characterNames;
+      this.props.result.opening_crawl = this.props.result.opening_crawl.split(
+        "\n"
+      );
     }
     this.props.actions.selectedResult(this.props.result);
   };

@@ -1,10 +1,12 @@
-import { SELECTED_RESULT_ACTION, SWAP_TO_MOVIE_ACTION } from '../constants';
+import { SELECTED_RESULT_ACTION, SWAP_TO_MOVIE_ACTION, SWAP_TO_PERSON_ACTION } from '../constants';
 
 const initialState={
   selectedResult: {
     filmTitles:[''],
     characterNames:[''],
-    films:['']
+    films:[''],
+    opening_crawl: [''],
+    characters: ['']
   }
 };
 
@@ -17,6 +19,11 @@ export default function selectedResult(state=initialState, action) {
         selectedResult: payload
       };
     case SWAP_TO_MOVIE_ACTION:
+      return {
+        ...state,
+        selectedResult: payload
+      };
+    case SWAP_TO_PERSON_ACTION:
       return {
         ...state,
         selectedResult: payload

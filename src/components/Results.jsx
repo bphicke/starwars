@@ -47,6 +47,20 @@ const noMatches = {
 
 export default class Results extends Component {
   render() {
+    if (this.props.isLoading) {
+      return (
+        <div style={resultsContainerStyle}>
+          <div style={headerText}>Results</div>
+          <hr style={divider} />
+          <ul>
+            <div style={noMatches}>
+              <div>Searching...</div>
+            </div>
+          </ul>
+        </div>
+      );
+    }
+
     return (
       <div style={resultsContainerStyle}>
         <div style={headerText}>Results</div>

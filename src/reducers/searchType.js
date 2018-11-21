@@ -1,4 +1,9 @@
-import { MOVIES_RADIO_ACTION, PEOPLE_RADIO_ACTION, SWAP_TO_MOVIE_ACTION } from '../constants';
+import {
+  MOVIES_RADIO_ACTION,
+  PEOPLE_RADIO_ACTION,
+  SWAP_TO_MOVIE_ACTION,
+  SWAP_TO_PERSON_ACTION
+} from '../constants';
 
 const initialState={
   moviesRadio: false,
@@ -26,6 +31,12 @@ export default function selectRadioReducer(state=initialState, action) {
         ...state,
         moviesRadio: true,
         peopleRadio: false
+      };
+    case SWAP_TO_PERSON_ACTION:
+      return {
+        ...state,
+        moviesRadio: false,
+        peopleRadio: true
       };
     default:
         return state;

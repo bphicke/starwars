@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as Actions from "../actions";
 import axios from "axios";
 
-class HomeContainer extends React.Component {
+class HomeContainer extends Component {
   updateSearchQuery = e => {
     this.props.actions.searchQueryAction(e.target.value);
   };

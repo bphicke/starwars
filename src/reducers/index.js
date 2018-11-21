@@ -3,12 +3,14 @@ import searchQuery from './searchQuery';
 import searchType from './searchType'
 import searchResults from './searchResults';
 import selectedResult from './selectedResult';
+import isLoading from './isLoading';
 
 const rootReducer = combineReducers({
   searchQuery,
   searchType,
   searchResults,
-  selectedResult
+  selectedResult,
+  isLoading
 });
 
 export default rootReducer;

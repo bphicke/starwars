@@ -167,7 +167,7 @@ export default class Searchbox extends Component {
           }
           onClick={this.props.searchAPI}
         >
-          SEARCH
+          {this.props.isLoading ? "SEARCHING..." : "SEARCH"}
         </button>
       </div>
     );

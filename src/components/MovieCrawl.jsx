@@ -43,18 +43,18 @@ export default class MovieCrawl extends Component {
         <div style={title}>Opening Crawl</div>
         <hr style={divider} />
         <div style={details}>
-          Luke Skywalker has returned to his home planet of Tatooine in an
-          attempt to rescue his friend Han Solo from the clutches of the vile
-          gangster Jabba the Hutt.
-          <br />
-          <br />
-          Little does Luke know that the GALACTIC EMPIRE has secretly begun
-          construction on a new armored space station even more powerful than
-          the first dreaded Death Star.
-          <br />
-          <br />
-          When completed, this ultimate weapon will spell certain doom for the
-          small band of rebels struggling to restore freedom to the galaxy...
+          {this.props.opening_crawl.map((line, index) => {
+            return line.length === 1 ? (
+              <React.Fragment key={index}>
+                <br />
+                <br />
+              </React.Fragment>
+            ) : (
+              <React.Fragment key={index}>
+                <div>{line}</div>
+              </React.Fragment>
+            );
+          })}
         </div>
       </div>
     );

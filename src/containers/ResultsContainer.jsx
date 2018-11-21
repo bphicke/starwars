@@ -3,7 +3,6 @@ import Results from "../components/Results.jsx";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as Actions from "../actions";
-import axios from "axios";
 
 class ResultsContainer extends Component {
   render() {
@@ -11,6 +10,7 @@ class ResultsContainer extends Component {
       <Results
         results={this.props.searchResults}
         people={this.props.peopleRadio}
+        isLoading={this.props.isLoading}
       />
     );
   }
@@ -19,7 +19,8 @@ class ResultsContainer extends Component {
 const mapStateToProps = state => ({
   moviesRadio: state.searchType.moviesRadio,
   peopleRadio: state.searchType.peopleRadio,
-  searchResults: state.searchResults.searchResults
+  searchResults: state.searchResults.searchResults,
+  isLoading: state.isLoading.isLoading
 });
 
 const mapDispatchToProps = dispatch => ({

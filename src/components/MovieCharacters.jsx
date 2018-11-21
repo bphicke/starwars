@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MovieCharacterContainer from "../containers/MovieCharacterContainer.jsx";
 
 const title = {
   width: "59px",
@@ -36,9 +37,6 @@ const details = {
   color: "#000000",
   listStyle: "none"
 };
-const linkStyle = {
-  textDecoration: "none"
-};
 
 export default class MovieCharacters extends Component {
   render() {
@@ -47,25 +45,15 @@ export default class MovieCharacters extends Component {
         <div style={title}>Characters</div>
         <hr style={divider} />
         <div style={details}>
-          <a href={"/detail"} style={linkStyle}>
-            Luke Skywalker
-          </a>
-          ,
-          <a href={"/detail"} style={linkStyle}>
-            Jabba Desiliijic Tiure
-          </a>
-          ,
-          <a href={"/detail"} style={linkStyle}>
-            Wedge Antilles
-          </a>
-          ,
-          <a href={"/detail"} style={linkStyle}>
-            Jek Tono Porkins
-          </a>
-          ,
-          <a href={"/detail"} style={linkStyle}>
-            Raymus Antilles
-          </a>
+          {this.props.selectedResult.characterNames.map((name, index) => {
+            return (
+              <MovieCharacterContainer
+                key={index}
+                name={name}
+                url={this.props.selectedResult.characters[index]}
+              />
+            );
+          })}
         </div>
       </div>
     );

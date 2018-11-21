@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const PersonBoxStyle = {
   width: "804px",
-  height: "537px",
+  height: "650px",
   borderRadius: "4px",
   boxShadow: "0 1px 2px 0 rgba(132, 132, 132, 0.75)",
   backgroundColor: "#ffffff",
@@ -43,7 +43,7 @@ const buttonStyle = {
   marginLeft: "30px",
   borderStyle: "solid",
   borderColor: "#0ab463",
-  marginTop: "30px"
+  marginTop: "140px"
 };
 const container = {
   display: "flex"
@@ -53,10 +53,10 @@ export default class Movie extends Component {
   render() {
     return (
       <div style={PersonBoxStyle}>
-        <div style={titleText}>Return of the Jedi</div>
+        <div style={titleText}>{this.props.selectedResult.title}</div>
         <div style={container}>
-          <MovieCrawl />
-          <MovieCharacters />
+          <MovieCrawl opening_crawl={this.props.selectedResult.opening_crawl} />
+          <MovieCharacters selectedResult={this.props.selectedResult} />
         </div>
         <Link to={"/"}>
           <button style={buttonStyle}>BACK TO SEARCH</button>
