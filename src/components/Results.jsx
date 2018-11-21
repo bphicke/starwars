@@ -46,7 +46,7 @@ export default class Results extends Component {
 
 const resultsContainerStyle = {
   width: "582px",
-  height: "582px",
+  height: "650px",
   borderRadius: "4px",
   boxShadow: "0 1px 2px 0 rgba(132, 132, 132, 0.75)",
   backgroundColor: "#ffffff",
