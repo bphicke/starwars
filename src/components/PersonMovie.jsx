@@ -4,7 +4,7 @@ export default class PersonMovie extends Component {
   render() {
     return (
       <li>
-        <a>{this.props.film}</a>
+        <a onClick={this.props.selectMovie}>{this.props.film}</a>
       </li>
     );
   }

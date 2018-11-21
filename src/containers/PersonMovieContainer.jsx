@@ -8,19 +8,23 @@ import axios from "axios";
 class PersonMovieContainer extends Component {
   selectMovie = () => {
     axios.get(this.props.url).then(async filmData => {
+      console.log(filmData);
       let characterNames = await Promise.all(
-        filmData.characters.map(url =>
+        filmData.data.characters.map(url =>
           axios.get(url).then(characterData => characterData.data.name)
         )
       );
-      filmData.characterNames = characterNames;
-      this.props.actions.selectedResult(filmData);
-      this.props.actions.moviesRadioAction();
+
+      filmData.data.characterNames = characterNames;
+      console.log(filmData.data);
+      this.props.actions.characterToMovie(filmData.data);
     });
   };
   render() {
     console.log(this.props.url);
-    return <PersonMovie film={this.props.film} />;
+    return (
+      <PersonMovie film={this.props.film} selectMovie={this.selectMovie} />
+    );
   }
 }
 
